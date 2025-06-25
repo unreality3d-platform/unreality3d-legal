@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Guidelines - Unreality3D</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Google Fonts - Match website design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Match landing page color scheme */
+            --primary-blue: #2563eb;
+            --primary-purple: #7c3aed;
+            --accent-cyan: #06b6d4;
+            --accent-orange: #f59e0b;
+            --success-green: #10b981;
+            --dark-bg: #0f172a;
+            --medium-bg: #1e293b;
+            --light-bg: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --text-white: #ffffff;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light-bg);
+        }
+
+        /* Header matching website */
+        .header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 50%, var(--primary-blue) 100%);
+            color: var(--text-white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+                opacity: 0.3;
+            }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-white), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+            .breadcrumb a {
+                color: var(--accent-cyan);
+                text-decoration: none;
+            }
+
+                .breadcrumb a:hover {
+                    text-decoration: underline;
+                }
+
+        /* Navigation */
+        .nav-container {
+            background: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link:hover {
+                color: var(--primary-blue);
+            }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background: var(--primary-purple);
+            }
+
+        /* Main content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .effective-date {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 0.75rem;
+        }
+
+        h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-top: 3px solid var(--primary-blue);
+            padding-top: 1.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+        }
+
+        h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .mission-statement {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+        }
+
+            .mission-statement h3 {
+                color: white;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+
+            .mission-statement p {
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+        .warning-box {
+            background: linear-gradient(135deg, var(--accent-orange), #dc2626);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+        }
+
+            .warning-box p {
+                color: white;
+                margin-bottom: 0;
+            }
+
+        .platform-specific {
+            background: linear-gradient(135deg, var(--light-bg), #e2e8f0);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent-cyan);
+        }
+
+            .platform-specific h3 {
+                color: var(--accent-cyan);
+                margin-top: 0;
+            }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .guideline-card {
+            background: var(--light-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+            .guideline-card h4 {
+                color: var(--primary-blue);
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+        .contact {
+            background: linear-gradient(135deg, var(--light-bg), #e2e8f0);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+            .contact h3 {
+                color: var(--primary-blue);
+                margin-top: 0;
+            }
+
+        /* Footer */
+        .footer {
+            background: var(--medium-bg);
+            color: var(--text-white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="header-container">
+            <div class="breadcrumb">
+                <a href="https://unreality3d.com/">Home</a> / Community Guidelines
+            </div>
+            <h1 class="header-title">Community Guidelines</h1>
+            <p class="header-subtitle">Building safe, creative spaces for Unity 6 powered interactive experiences</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="https://unreality3d.com/" class="nav-link">← Back to Platform</a></li>
+                <li><a href="https://unreality3d.com/legal/privacy" class="nav-link">Privacy Policy</a></li>
+                <li><a href="https://unreality3d.com/legal/terms" class="nav-link">Terms of Service</a></li>
+            </ul>
+            <div>
+                <a href="https://unreality3d.com/quickstart.html" class="btn btn-primary">Start Creating</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content">
+            <div class="effective-date">Version Effective: January 15, 2025</div>
+
+            <div class="mission-statement">
+                <h3>Our Mission</h3>
+                <p>Unreality3D empowers creators to build interactive 3D experiences that bring people together. We foster a global community where creativity flourishes, innovation thrives, and everyone can express themselves through immersive Unity 6 powered content. Our Community Guidelines ensure a safe, inclusive environment where creators and users feel welcome to explore, create, and connect.</p>
+            </div>
+
+            <h2>Foundation Principles</h2>
+            <p>At Unreality3D, we champion creativity, respect, and authentic expression. Our platform celebrates unique perspectives while maintaining safety for all community members. We believe that great interactive experiences emerge from diverse voices working together in a supportive environment.</p>
+
+            <p>These guidelines apply to all content, interactions, and activities across Unreality3D, including Unity projects, Quest systems, 3D environments, social features, and monetized experiences. We enforce these standards through a combination of automated systems and human review, with community reporting as a vital component.</p>
+
+            <h2>Content Creation Standards</h2>
+
+            <h3>Creative Excellence</h3>
+            <p>We encourage innovative, high-quality interactive experiences that showcase the power of Unity 6 and engaging storytelling. Content should demonstrate creativity, thoughtful design, and respect for the user experience.</p>
+
+            <div class="platform-specific">
+                <h3>Unity 6 and Interactive Content Guidelines</h3>
+                <p>Content must meet technical standards for web deployment and provide meaningful interactivity. Interactive systems should offer clear objectives, 3D environments should be optimized for WebGL, and interactive elements should enhance rather than distract from the core experience.</p>
+            </div>
+
+            <h3>Prohibited Content Categories</h3>
+            <ul>
+                <li><strong>Harmful or Dangerous Activities:</strong> Content promoting risky behaviors, unsafe challenges, or activities that could cause physical harm</li>
+                <li><strong>Offensive Material:</strong> Experiences containing excessive violence, graphic imagery, or content designed primarily to shock or disturb</li>
+                <li><strong>Inappropriate Sexual Content:</strong> Adult-oriented material, explicit imagery, or sexually suggestive interactions</li>
+                <li><strong>Deceptive Practices:</strong> Misleading descriptions, fake gameplay footage, or misrepresentation of interactive features</li>
+                <li><strong>Illegal Activities:</strong> Content promoting unlawful behavior, substances, or activities prohibited by law</li>
+            </ul>
+
+            <h2>Community Behavior Standards</h2>
+
+            <h3>Respectful Interaction</h3>
+            <p>We maintain zero tolerance for harassment, bullying, or discriminatory behavior. All community members deserve to create and explore without fear of abuse or intimidation. This includes interactions within experiences, quest narratives, social features, and all platform communications.</p>
+
+            <h3>Prohibited Behaviors</h3>
+            <ul>
+                <li><strong>Harassment and Abuse:</strong> Targeting individuals with unwanted contact, threatening language, or persistent negative behavior</li>
+                <li><strong>Hate Speech:</strong> Content or interactions that attack individuals based on identity, background, or protected characteristics</li>
+                <li><strong>Impersonation:</strong> Pretending to be another person, organization, or platform representative</li>
+                <li><strong>Spam and Manipulation:</strong> Artificially inflating engagement, creating multiple accounts, or disrupting platform functionality</li>
+                <li><strong>Privacy Violations:</strong> Sharing personal information without consent or attempting to access private data</li>
+            </ul>
+
+            <div class="guidelines-grid">
+                <div class="guideline-card">
+                    <h4>Interactive Experiences</h4>
+                    <ul>
+                        <li>Interactive objectives should be clear and achievable</li>
+                        <li>3D environments must be navigable and user-friendly</li>
+                        <li>Interactive elements should provide meaningful feedback</li>
+                        <li>Monetized content must deliver promised value</li>
+                    </ul>
+                </div>
+
+                <div class="guideline-card">
+                    <h4>Creator Responsibilities</h4>
+                    <ul>
+                        <li>Respond to user feedback and reports promptly</li>
+                        <li>Maintain technical quality and performance standards</li>
+                        <li>Ensure content descriptions accurately represent experiences</li>
+                        <li>Honor PayPal monetization commitments fairly</li>
+                    </ul>
+                </div>
+
+                <div class="guideline-card">
+                    <h4>User Guidelines</h4>
+                    <ul>
+                        <li>Provide constructive feedback to creators</li>
+                        <li>Report inappropriate content or behavior</li>
+                        <li>Respect creator intellectual property rights</li>
+                        <li>Participate authentically in interactive experiences</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Safety and Protection</h2>
+
+            <h3>Youth Safety Priority</h3>
+            <p>We are committed to protecting users under 18. Content accessible to minors must be appropriate for all ages, and we prohibit any attempts to exploit, harm, or inappropriately contact young users. Creators should consider their audience when designing interactive experiences and narrative content.</p>
+
+            <h3>Safety Measures</h3>
+            <ul>
+                <li><strong>Age-Appropriate Content:</strong> Experiences should clearly indicate intended audience and maintain appropriate themes</li>
+                <li><strong>Reporting Systems:</strong> Easy-to-use tools for reporting inappropriate content or behavior</li>
+                <li><strong>Moderation Response:</strong> Swift action on reported violations with transparent communication</li>
+                <li><strong>Educational Resources:</strong> Guidelines and best practices for creating safe, engaging content</li>
+            </ul>
+
+            <h2>Monetization Ethics</h2>
+
+            <h3>Fair Commerce Practices</h3>
+            <p>Our 95% creator payout system is built on trust and fair dealing. Monetized content must provide genuine value, clearly communicate costs, and deliver promised experiences. Creators using PayPal integration must honor all transactions, maintain ethical business practices, and respect all intellectual property rights in their monetized content.</p>
+
+            <div class="warning-box">
+                <p><strong>Copyright Compliance in Monetization:</strong> Selling experiences that contain unauthorized copyrighted material violates both our guidelines and applicable law. All monetized content must use only original work, properly licensed assets, or materials you have legal rights to commercialize.</p>
+            </div>
+
+            <h3>Monetization Guidelines</h3>
+            <ul>
+                <li><strong>Transparent Pricing:</strong> Clear communication of all costs before purchase</li>
+                <li><strong>Value Delivery:</strong> Paid content must provide meaningful experiences worth the cost</li>
+                <li><strong>Honest Marketing:</strong> Accurate descriptions and gameplay footage</li>
+                <li><strong>Copyright Compliance:</strong> Only monetize content using assets you own or have commercial licensing rights for</li>
+                <li><strong>Asset Attribution:</strong> Credit third-party assets appropriately, especially in monetized content</li>
+                <li><strong>Fair Access:</strong> Reasonable pricing that doesn't exploit users</li>
+                <li><strong>Quality Assurance:</strong> Paid experiences should meet higher standards for polish and completion</li>
+            </ul>
+
+            <h2>Technical and Security Standards</h2>
+
+            <h3>Platform Integrity</h3>
+            <p>Creators must maintain technical standards that ensure platform stability and user safety. This includes proper Unity 6 implementation, secure coding practices, and respect for platform limitations and security measures.</p>
+
+            <div class="warning-box">
+                <p><strong>Security Violations:</strong> Attempting to hack, exploit, or compromise platform security will result in immediate account termination and potential legal action.</p>
+            </div>
+
+            <h3>Technical Requirements</h3>
+            <ul>
+                <li><strong>Unity 6 Compliance:</strong> Projects must meet WebGL deployment standards</li>
+                <li><strong>Performance Optimization:</strong> Content should load efficiently and run smoothly</li>
+                <li><strong>Security Best Practices:</strong> No malicious code, exploits, or security vulnerabilities</li>
+                <li><strong>Platform Integration:</strong> Proper use of Quest systems, payment integration, and social features</li>
+            </ul>
+
+            <h2>Asset Use and Copyright Respect</h2>
+
+            <h3>Encouraging Asset Marketplace Use</h3>
+            <p>We enthusiastically encourage creators to enhance their experiences with high-quality 3D assets, textures, audio, and other content from established marketplaces like the Unity Asset Store. Professional assets can dramatically improve the quality and appeal of your interactive experiences, and supporting asset creators benefits the entire development ecosystem.</p>
+
+            <h3>Prohibited Asset Practices</h3>
+            <div class="warning-box">
+                <p><strong>Asset Resale Prohibition:</strong> Purchasing assets for one project and then reselling, redistributing, or repackaging them in any form is strictly prohibited and violates both our guidelines and the original asset licensing terms.</p>
+            </div>
+
+            <ul>
+                <li><strong>Unauthorized Distribution:</strong> Sharing, selling, or redistributing purchased assets outside your licensed use</li>
+                <li><strong>License Violations:</strong> Using assets beyond the scope of their licensing terms</li>
+                <li><strong>Asset Farming:</strong> Creating experiences primarily to extract and redistribute assets</li>
+                <li><strong>Copyright Infringement:</strong> Using copyrighted material without proper licensing or authorization</li>
+                <li><strong>Source Concealment:</strong> Deliberately hiding the origins of third-party assets to avoid proper attribution</li>
+            </ul>
+
+            <h3>Asset Attribution and Citation</h3>
+            <p>We strongly encourage creators to cite and credit the sources of third-party assets used in their experiences. Proper attribution helps others discover quality assets, supports the asset creation community, and demonstrates professional development practices.</p>
+
+            <p><em>We are developing integrated citation tools to make sharing asset sources simple and beneficial for both creators and asset publishers. This will help build a transparent, supportive ecosystem where quality assets are discovered and properly credited.</em></p>
+
+            <h3>Best Practices for Asset Use</h3>
+            <ul>
+                <li><strong>License Compliance:</strong> Read and follow all licensing terms for purchased assets</li>
+                <li><strong>Source Documentation:</strong> Keep records of where assets were obtained and their licensing terms</li>
+                <li><strong>Attribution Culture:</strong> Credit asset creators when possible, especially for significant contributions</li>
+                <li><strong>Quality Investment:</strong> Choose professional assets that enhance rather than detract from user experience</li>
+                <li><strong>Original Integration:</strong> Combine assets creatively to create unique, original experiences</li>
+            </ul>
+
+            <h2>Intellectual Property Protection</h2>
+
+            <h3>Copyright Respect and Enforcement</h3>
+            <p>Unreality3D takes intellectual property rights seriously and expects all community members to respect copyright, trademark, and other IP protections. Unauthorized use of copyrighted material undermines creators' rights and can expose both the platform and users to legal liability.</p>
+
+            <div class="warning-box">
+                <p><strong>Zero Tolerance for Piracy:</strong> Using pirated assets, unauthorized copyrighted material, or circumventing licensing requirements will result in immediate content removal and potential account suspension.</p>
+            </div>
+
+            <h3>Copyright Guidelines</h3>
+            <ul>
+                <li><strong>Original Creation Priority:</strong> Content should be primarily original work or properly licensed material</li>
+                <li><strong>Marketplace Asset Encouragement:</strong> Use professional assets from legitimate sources like Unity Asset Store</li>
+                <li><strong>License Compliance:</strong> Strictly adhere to all licensing terms for any third-party content</li>
+                <li><strong>Proper Attribution:</strong> Credit asset creators and sources appropriately</li>
+                <li><strong>Fair Use Understanding:</strong> Correctly apply fair use principles when referencing existing works</li>
+                <li><strong>DMCA Compliance:</strong> Respond promptly to legitimate takedown requests</li>
+                <li><strong>Commercial Rights Verification:</strong> Ensure you have rights to commercialize all content in monetized experiences</li>
+            </ul>
+
+            <h3>Reporting Copyright Violations</h3>
+            <p>If you believe your copyrighted work has been used without authorization on Unreality3D, please contact admin@unreality3d.com with detailed information about the infringement. We take copyright violations seriously and will investigate all legitimate claims promptly.</p>
+
+            <h2>Enforcement and Appeals</h2>
+
+            <h3>Progressive Response System</h3>
+            <p>We believe in education and improvement rather than punishment alone. Our enforcement approach typically includes warnings, content removal, temporary restrictions, and permanent bans only for severe or repeated violations.</p>
+
+            <h3>Enforcement Actions</h3>
+            <ul>
+                <li><strong>Content Warnings:</strong> Notices about guideline violations with improvement suggestions</li>
+                <li><strong>Content Removal:</strong> Taking down violating experiences with clear explanations</li>
+                <li><strong>Creator Education:</strong> Resources and guidance for improving future content</li>
+                <li><strong>Account Restrictions:</strong> Temporary limitations on publishing or monetization features</li>
+                <li><strong>Permanent Bans:</strong> Reserved for severe violations or repeated offenses</li>
+            </ul>
+
+            <h3>Appeals Process</h3>
+            <p>If you believe your content or account has been unfairly restricted, you can appeal our decision by contacting admin@unreality3d.com with detailed information about your situation. We review all appeals carefully and respond within 48 hours.</p>
+
+            <h2>Community Reporting</h2>
+
+            <h3>Reporting Violations</h3>
+            <p>Community members play a crucial role in maintaining platform safety. If you encounter content or behavior that violates these guidelines, please report it through our reporting system or by contacting admin@unreality3d.com.</p>
+
+            <h3>What to Report</h3>
+            <ul>
+                <li>Content that violates safety or decency standards</li>
+                <li>Harassment or abusive behavior</li>
+                <li>Technical exploits or security concerns</li>
+                <li>Intellectual property violations</li>
+                <li>Fraudulent or deceptive monetization practices</li>
+            </ul>
+
+            <h2>Continuous Improvement</h2>
+
+            <p>These Community Guidelines evolve with our platform and community needs. We regularly review and update these standards based on user feedback, emerging challenges, and platform growth. Major changes will be communicated to the community with advance notice.</p>
+
+            <p>We encourage ongoing dialogue about community standards and welcome suggestions for improving our guidelines. Together, we can build the most creator-friendly and safe platform for interactive 3D experiences.</p>
+
+            <div class="contact">
+                <h3>Contact and Support</h3>
+                <p><strong>Community Guidelines Questions:</strong> admin@unreality3d.com<br>
+                <strong>Report Violations:</strong> admin@unreality3d.com<br>
+                <strong>Appeal Decisions:</strong> admin@unreality3d.com<br>
+                <strong>Creator Support:</strong> admin@unreality3d.com</p>
+                
+                <p>Thank you for being part of our vibrant community and helping us create a welcoming space where creativity and innovation flourish. Together, we're building the future of interactive 3D experiences.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Unreality3D LLC. All rights reserved.</p>
+            <p>Unity 6 powered publishing and monetization, made instant.</p>
+        </div>
+    </footer>
+</body>
+</html>
